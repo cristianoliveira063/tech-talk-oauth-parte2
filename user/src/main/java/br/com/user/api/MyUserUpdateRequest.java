@@ -1,0 +1,21 @@
+package br.com.user.api;
+
+import br.com.user.domain.UserEntity;
+import jakarta.validation.constraints.NotBlank;
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
+public class MyUserUpdateRequest {
+    @NotBlank
+    private String name;
+    @NotBlank
+    private String email;
+
+
+    public void update(UserEntity currentUser) {
+        currentUser.email(this.email);
+        currentUser.name(this.name);
+    }
+}
